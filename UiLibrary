@@ -16,7 +16,7 @@ library.createWindow = function()
 	local UICorner_4 = Instance.new("UICorner")
 
 	UI.Name = "UI"
-	UI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	UI.Parent = gethui and gethui() or Instance.new("Folder", game.CoreGui)
 
 	Top.Name = "Top"
 	Top.Parent = UI
