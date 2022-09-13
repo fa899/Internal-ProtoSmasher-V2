@@ -17,6 +17,7 @@ library.createWindow = function()
 
 	UI.Name = "UI"
 	UI.Parent = gethui and gethui() or Instance.new("Folder", game.CoreGui)
+	UI.ResetOnSpawn = false
 
 	Top.Name = "Top"
 	Top.Parent = UI
