@@ -1,0 +1,304 @@
+local library = {}
+
+library.createWindow = function()
+	local children = {}
+	local UI = Instance.new("ScreenGui")
+	local Top = Instance.new("Frame")
+	local Title = Instance.new("TextLabel")
+	local Internal = Instance.new("Frame")
+	local UICorner = Instance.new("UICorner")
+	local Main = Instance.new("ScrollingFrame")
+	local Tabs_ = Instance.new("Frame")
+	local UICorner_2 = Instance.new("UICorner")
+	local UIListLayout = Instance.new("UIListLayout")
+	local UICorner_3 = Instance.new("UICorner")
+	local Hide = Instance.new("TextButton")
+	local UICorner_4 = Instance.new("UICorner")
+
+	UI.Name = "UI"
+	UI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+	Top.Name = "Top"
+	Top.Parent = UI
+	Top.BackgroundColor3 = Color3.fromRGB(108, 26, 30)
+	Top.Position = UDim2.new(0.249804229, 0, 0.437582076, 0)
+	Top.Size = UDim2.new(0, 381, 0, 18)
+	Top.ZIndex = 2
+
+	Title.Name = "Title"
+	Title.Parent = Top
+	Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Title.BackgroundTransparency = 1.000
+	Title.Position = UDim2.new(0.363893986, 0, -0.0135085164, 0)
+	Title.Size = UDim2.new(0, 118, 0, 17)
+	Title.ZIndex = 2
+	Title.Font = Enum.Font.GothamMedium
+	Title.Text = "ProtoSmasher"
+	Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Title.TextScaled = true
+	Title.TextSize = 14.000
+	Title.TextWrapped = true
+
+	Internal.Name = "Internal"
+	Internal.Parent = Top
+	Internal.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+	Internal.Position = UDim2.new(-0.000405539351, 0, -0.00680702925, 0)
+	Internal.Size = UDim2.new(0, 381, 0, 249)
+
+	UICorner.CornerRadius = UDim.new(0, 10)
+	UICorner.Parent = Internal
+
+	Main.Name = "Main"
+	Main.Parent = Internal
+	Main.Active = true
+	Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Main.BackgroundTransparency = 1.000
+	Main.BorderColor3 = Color3.fromRGB(255, 255, 255)
+	Main.Position = UDim2.new(0.0157479532, 0, 0.0722891539, 0)
+	Main.Size = UDim2.new(0, 368, 0, 218)
+	Main.CanvasSize = UDim2.new(0, 0, 9, 0)
+	Main.ScrollBarThickness = 0
+	Main.TopImage = ""
+
+	Tabs_.Name = "Tabs_"
+	Tabs_.Parent = Main
+	Tabs_.BackgroundColor3 = Color3.fromRGB(108, 26, 30)
+	Tabs_.Position = UDim2.new(0.000419948425, 0, 0, 0)
+	Tabs_.Size = UDim2.new(0, 367, 0, 23)
+	Tabs_.ZIndex = 2
+
+	UICorner_2.Parent = Tabs_
+
+	UIListLayout.Parent = Tabs_
+	UIListLayout.FillDirection = Enum.FillDirection.Horizontal
+	UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+	UICorner_3.Parent = Top
+
+	Hide.Name = "Hide"
+	Hide.Parent = Top
+	Hide.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Hide.BackgroundTransparency = 1.000
+	Hide.Position = UDim2.new(0.0157480314, 0, 0, 0)
+	Hide.Size = UDim2.new(0, 20, 0, 18)
+	Hide.ZIndex = 2
+	Hide.Font = Enum.Font.GothamMedium
+	Hide.Text = "►"
+	Hide.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Hide.TextSize = 14.000
+
+	UICorner_4.Parent = Hide
+	children.CreateTab = function(title)
+		local children_1 = {}
+		local Frame = Instance.new("Frame")
+		Frame.Parent = Main
+		Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		Frame.BackgroundTransparency = 0.450
+		Frame.Position = UDim2.new(0, 0, 0.0102632754, 0)
+		Frame.Size = UDim2.new(0, 367, 0, 10000)
+		Frame.Name = title
+		local listlayout = Instance.new("UIListLayout")
+		listlayout.Parent = Frame
+		listlayout.VerticalAlignment = Enum.VerticalAlignment.Top
+		Frame.Transparency = 1
+		children_1.Button = function(title)
+			local button = {}
+			local Button = Instance.new("TextButton")
+			local Scalee = Instance.new("UIScale")
+			local UICorner_4 = Instance.new("UICorner")
+			Scalee.Parent = Button
+			Button.Name = title
+			Button.Text = title
+			Button.Parent = Frame
+			Button.BackgroundColor3 = Color3.fromRGB(108, 26, 30)
+			Button.Position = UDim2.new(0, 0, 0.130434781, 0)
+			Button.Size = UDim2.new(0, 101, 0, 20)
+			Button.ZIndex = 5
+			Button.Font = Enum.Font.GothamMedium
+			Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+			Button.TextSize = 14.000
+			Button.TextWrapped = true
+			UICorner_4.Parent = Button
+			Button.Size = UDim2.new(0, Button.TextBounds.X / (Scalee.Scale * Scalee.Scale) + 10, 0, 20)
+			button.Clicked = Button.MouseButton1Click
+			return button
+		end
+
+		children_1.Toggle = function(title)
+			local toggle = {}
+			local toggled = false
+			local Box = Instance.new("Frame")
+			local Corner = Instance.new("UICorner")
+			local fakeButton = Instance.new("TextButton")
+			fakeButton.Parent = Box
+			local Check = Instance.new("ImageLabel")
+			fakeButton.Position = UDim2.new(0, 0, 0, 0)
+			fakeButton.ZIndex = 10
+			fakeButton.Size = UDim2.new(0, 22, 0, 22)
+			fakeButton.Transparency = 1
+			fakeButton.TextTransparency = 1
+			fakeButton.Text = ""
+			Check.Image = "rbxassetid://3224442404"
+			Check.Parent = Box
+			Check.Position = UDim2.new(0, 0, 0, 0)
+			Check.BackgroundTransparency = 0
+			Check.Size = UDim2.new(0, 18, 0, 18)
+			Check.ImageTransparency = 0
+			Check.BackgroundTransparency = 1
+			Box.Parent = Frame
+			Box.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+			Corner.Parent = Box
+			Box.Size = UDim2.new(0, 20, 0, 20)
+			local Toggle = Instance.new("TextButton")
+			local Scalee = Instance.new("UIScale")
+			local UICorner_4 = Instance.new("UICorner")
+			Scalee.Parent = Toggle
+			Toggle.Name = title
+			Toggle.Text = title
+			Box.Parent = Frame
+			Toggle.BackgroundColor3 = Color3.fromRGB(108, 26, 30)
+			Toggle.Position = UDim2.new(0, 0, 0.130434781, 0)
+			Toggle.Size = UDim2.new(0, 101, 0, 20)
+			Toggle.ZIndex = 5
+			Toggle.Font = Enum.Font.GothamMedium
+			Toggle.TextColor3 = Color3.fromRGB(255, 255, 255)
+			Toggle.TextSize = 14.000
+			Toggle.TextWrapped = true
+			Toggle.Parent = Box
+			Toggle.Position = UDim2.new(0,25,0,0)
+			Check.Parent = Box
+			UICorner_4.Parent = Toggle
+			Toggle.Size = UDim2.new(0, Toggle.TextBounds.X / (Scalee.Scale * Scalee.Scale) + 5, 0, 20)
+			toggle.onToggle = Toggle.MouseButton1Click
+			toggle.fakebutton_onToggle = fakeButton.MouseButton1Click
+			toggle.Toggled = toggled
+			Check.Visible = toggled
+			Toggle.MouseButton1Click:Connect(function()
+				toggled = not toggled
+				Check.Visible = toggled
+				toggle.Toggled = toggled
+			end)
+			fakeButton.MouseButton1Click:Connect(function()
+				toggled = not toggled
+				Check.Visible = toggled
+				toggle.Toggled = toggled
+			end)
+			return toggle
+		end
+		
+		children_1.Dropdown = function(title,objects,onselect)
+			local dropdown = {}
+			if not title then
+				return error("Bad #1 argument for \"Dropdown\" (string expected, got nil)")
+			elseif title ~= nil and type(title) ~= "string" then
+				return error("Bad #1 argument for \"Dropdown\" (string expected, got "..type(title)..")")
+			end
+			if objects and type(objects) ~= "table" then
+				return error("Bad #2 argument for \"Dropdown\" (objects) (table expected, got "..type(objects)..")")
+			elseif not objects then
+				return error("Bad #2 argument for \"Dropdown\" (objects) (value expected, got nil)")
+			end
+			if onselect and type(onselect) ~= "function" then
+				return error("Bad #3 argument for \"Dropdown\" (onselect) (function expected, got "..type(objects)..")")
+			elseif not onselect then
+				return error("Bad #3 argument for \"Dropdown\" (onselect) (function expected, got nil)")
+			end
+			local Box = Instance.new("Frame")
+			local Corner = Instance.new("UICorner")
+			local Button = Instance.new("TextButton",Box)
+			local layout = Instance.new("UIListLayout", Box)
+			Box.Parent = Frame
+			Box.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+			local Scalee = Instance.new("UIScale", Box)
+			local toggled = false
+			Corner.Parent = Box
+			Box.Size = UDim2.new(0, 367, 0, 20)
+			Button.Size = UDim2.new(0, 367, 0, 20)
+			Button.BackgroundTransparency = 1
+			Button.Font = Enum.Font.GothamMedium
+			Button.TextColor3 = Color3.fromRGB(255, 255, 255)
+			Button.TextSize = 14.000
+			Button.TextWrapped = true
+			Button.Parent = Box
+			Button.Position = UDim2.new(0,25,0,0)
+			Button.ZIndex = 10
+			local selected = ""
+			dropdown.Selected = selected
+			Button.Text = title.." - "..(selected or "...")
+			Button.MouseButton1Click:Connect(function()
+				toggled = not toggled
+				if toggled == true then
+					Box.Size = UDim2.new(0, 367, 0, 100)
+					for i,v in pairs(Box:GetChildren()) do
+						if v:IsA("TextButton") then
+							v.Visible = true
+							if v.Name == "TextButton" then
+								v.Parent = nil
+							end
+						end
+					end
+					wait()
+					Button.Parent = Box
+				else
+					for i,v in pairs(Box:GetChildren()) do
+						for i,v in pairs(Box:GetChildren()) do
+							if v:IsA("TextButton") and v.Name ~= "TextButton" then
+								v.Visible = false
+							end
+						end
+					end
+					Box.Size = UDim2.new(0, 367, 0, 20)
+				end
+			end)
+			for i,v in pairs(objects) do
+				local fullButton = Instance.new("TextButton",Box)
+				fullButton.Text = v
+				fullButton.Size = UDim2.new(0, Box.AbsoluteSize.X / (Scalee.Scale * Scalee.Scale) + 5, 0, 15)
+				fullButton.BackgroundTransparency = 1
+				fullButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+				fullButton.Font = Enum.Font.GothamMedium
+				fullButton.TextScaled = true
+				fullButton.MouseButton1Click:Connect(function()
+					selected = fullButton.Text
+					dropdown.Selected = selected
+					Button.Text = title.." - "..(selected)
+				end)
+				fullButton.Name = "Ingredient"
+				fullButton.Visible = false
+				fullButton.MouseButton1Click:Connect(function()
+					return selected
+				end)
+			end
+			return dropdown
+		end
+		local Tab = Instance.new("TextButton")
+		local Scale = Instance.new("UIScale")
+		local UICorner_3 = Instance.new("UICorner")
+		Scale.Parent = Tab
+		Tab.Name = title
+		Tab.Text = title
+		Tab.Parent = Tabs_
+		Tab.BackgroundColor3 = Color3.fromRGB(108, 26, 30)
+		Tab.Position = UDim2.new(0, 0, 0.130434781, 0)
+		Tab.Size = UDim2.new(0, 101, 0, 20)
+		Tab.ZIndex = 5
+		Tab.Font = Enum.Font.GothamMedium
+		Tab.TextColor3 = Color3.fromRGB(255, 255, 255)
+		Tab.TextSize = 14.000
+		Tab.TextWrapped = true
+		UICorner_3.Parent = Tab
+		Tab.Size = UDim2.new(0, Tab.TextBounds.X / (Scale.Scale * Scale.Scale) + 10, 0, 20)
+		Tab.MouseButton1Click:Connect(function()
+			for i,v in pairs(Main:GetChildren()) do
+				if v:IsA("Frame") and v.Name ~= "Tabs_" then
+					v.Visible = false
+				end
+			end
+			Main[title].Visible = true
+		end)
+		return children_1
+	end
+	return children
+end
+
+return library
